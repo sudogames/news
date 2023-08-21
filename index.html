@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  
+  <h1> Hello WOrld </h1>
+  
+  <body>
+  <div class= "formdiv">
+  <form onSubmit= "addArticle()" id= "articleform">
+      add text here: <input type = "text" id = "article"/> 
+      give your article a title: <input type = "text" id= "articletitle"/>
+      <input type= "submit"/>
+      <hr id ="hr0">
+    </form>
+  </div>
+    <div id = "divarticles"></div>
+  
+  <script>
+  
+  function addArticle(){
+      //if ((document.getElementById("article").value== "") || (document.getElementById("articletitle").value== "")){
+      //alert("Please fill in all fields!") 
+      //} else {
+      var articles = JSON.parse(localStorage.getItem('articles')) || [];
+      articles.push(document.getElementById("article").value);
+      localStorage.setItem("articles", JSON.stringify(articles));
+      
+      var articletitles = JSON.parse(localStorage.getItem('articletitles')) || [];
+      articletitles.push(document.getElementById("articletitle").value);
+      localStorage.setItem("articletitles", JSON.stringify(articletitles));
+      //  }
+      displayArticles();
+    }
+    
+  window.onload = function displayArticles() {
+      event.preventDefault();
+      const articleslist = JSON.parse(localStorage.getItem("articles"));
+      const articletitleslist = JSON.parse(localStorage.getItem("articletitles"));
+      i=0;
+      articleslist.forEach(function(article) {
+        const div = document.createElement("div");
+        div.id ="articlediv";
+        
+        const divarticles= document.getElementById("divarticles");
+        div.innerText = "title:"+articletitleslist[i]+ "\n"+ article ;
+        i+=1;
+        divarticles.insertAdjacentElement("afterbegin", div);
+      
+      }) 
+    }
+    
+  </script>
+    
+  </body>
+
+
+</html>
+

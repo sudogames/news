@@ -1,0 +1,27 @@
+h1 {
+  text-align: center;
+  height: 150px;
+  padding-top: 10px;
+  background-color: #008B8B;
+}
+
+#article {height: 150px}
+#hr0 {color: white}
+
+.formdiv {
+  box-sizing: border-box;
+  padding-right: 20%;
+  padding-left: 5%;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  background-color: #F0F8FF;
+}
+
+#articlediv {
+  height: 200px; 
+  background-color: black; 
+  color: white; 
+  border: solid 5px pink; 
+  padding: 10px; 
+  font-family: serif
+}
